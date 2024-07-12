@@ -1,21 +1,14 @@
-{/* Page imports */}
-import HomePage from "./pages/Homepage"
-import ShoppingCart from "./pages/ShoppingCart"
-import Product from "./pages/Product"
+{/* Components imports */}
+import Header from "./components/Header"
 
-{/* Config react router dom */}
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+{/*Hook to navigate in the pages*/}
+import { Outlet } from 'react-router-dom'
 
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
-          <Route path="/product/:id" element={<Product />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Header />
+      <Outlet />
     </div>
   )
 }
