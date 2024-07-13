@@ -10,7 +10,8 @@ const Homepage = () => {
   const getClothes = async (url) => {
     const resp = await fetch(url)
     const data = await resp.json()
-    setClothes(data)
+    const onlyClothes = data.filter(clothes => clothes.category === "women's clothing" || clothes.category === "men's clothing")
+    setClothes(onlyClothes)
   }
 
   useEffect(() => {
