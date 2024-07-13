@@ -19,9 +19,10 @@ const Homepage = () => {
   }, [])
 
   return (
-    <div>
-      {clothes.map((clothes) => <ProductCard key={clothes.id} clothes={clothes}/>)}
-    </div>
+      <div className="flex flex-wrap justify-center gap-12 pb-12">
+        {clothes.map((clothes) => <ProductCard key={clothes.id} clothes={clothes}/>)}
+      </div>
+    
   )
 }
 
