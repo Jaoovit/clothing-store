@@ -35,10 +35,6 @@ const Product = () => {
             <FaStar className="text-amber-400"/>
             <p>{onlyOneClothing.rating.rate}</p>
           </div>
-          <div className="flex items-center gap-3">
-            <button className="h-9 w-9 bg-black text-white rounded font-bold">+</button>
-            <p>add to card</p>
-          </div>
         </div>
       </div>
       }

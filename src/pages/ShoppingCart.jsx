@@ -1,9 +1,17 @@
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { FaStar } from "react-icons/fa";
+import { FaTrashCan } from "react-icons/fa6";
+import { remove } from "../redux/cartSlice";
 
 const ShoppingCart = () => {
 
-  const cartProducts = useSelector(state => state.cart)
+  const cartProducts = useSelector(state => state.cart);
+
+  const dispatch = useDispatch();
+
+  const removeToCart = (id) => {
+    dispatch(remove(id))
+  }
 
   return (
     <div className="flex flex-col gap-9 p-8 grid justify-items-stretch">
@@ -20,14 +28,11 @@ const ShoppingCart = () => {
               <div>{clothes.rating.rate}</div>
             </div>
             <div>€ {clothes.price}</div>
-            <div className="flex flex-row gap-3">
-              <button>-</button>
-              <div>1</div>
-              <button>+</button>
+            <div>
+              <button className="flex items-center justify-center h-9 w-9 bg-red-600 text-white rounded font-bold" onClick={() => removeToCart(clothes.id)}><FaTrashCan /></button>
             </div>
           </div>
           </div>))}
-          <p className="justify-self-end px-24 text-xl">Total price: </p>
       </div>
   )
 }
