@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom"
 import { FaEye } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { add } from "../redux/cartSlice"
 
-const ProductCard = ({clothes, showDetails = false}) => {
+const ProductCard = ({clothes}) => {
+
+  const dispatch = useDispatch();
 
   const linkToClothing = `product/${clothes.id}`
+
+  const addToCart = (clothes) => {
+    dispatch(add(clothes))
+  }
 
   return (
   <div className="flex flex-col justify-center items-center group max-w-96 p-8 border-2 border-gray-200 gap-3 shadow-md rounded transform motion-safe:hover:scale-110 duration-300">
@@ -17,7 +25,7 @@ const ProductCard = ({clothes, showDetails = false}) => {
       </div>
       <div className="flex flex-col items-center justify-center gap-3 h-32 p-3 opacity-0 group-hover:opacity-100 duration-500">
         <Link to={linkToClothing} className="flex items-center justify-center h-9 w-9 bg-red-400 rounded"><FaEye className="font-bold text-white" /></Link>
-        <button className="flex items-center justify-center h-9 w-9 bg-black text-white rounded font-bold">+</button>
+        <button className="flex items-center justify-center h-9 w-9 bg-black text-white rounded font-bold" onClick={() => addToCart(clothes)}>+</button>
       </div>
     </div>
   </div>

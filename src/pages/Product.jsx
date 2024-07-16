@@ -21,15 +21,15 @@ const Product = () => {
   }, [])
 
   return (
-    <div className="container flex">
+    <div>
       {onlyOneClothing && 
-      <div className="flex flex-col items-center justify-between gap-9 lg:flex-row lg:gap-0" key={onlyOneClothing.id}>
-        <div className="px-48">
-         <img src={onlyOneClothing.image} alt={onlyOneClothing.title} />
+      <div className="flex flex-col justify-center p-8 gap-9 lg:flex-row lg:gap-0" key={onlyOneClothing.id}>
+        <div>
+         <img className="object-contain h-96 w-96" src={onlyOneClothing.image} alt={onlyOneClothing.title} />
         </div>
         <div className="px-12 flex flex-col gap-9 text-xl">
           <p>{onlyOneClothing.title}</p>
-          <p>{onlyOneClothing.description}</p>
+          <p className="object-contain h-84 w-96">{onlyOneClothing.description}</p>
           <p>€ {onlyOneClothing.price}</p>
           <div className="flex items-center gap-2">
             <FaStar className="text-amber-400"/>
