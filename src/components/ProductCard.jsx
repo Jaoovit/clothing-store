@@ -7,11 +7,11 @@ const ProductCard = ({clothes}) => {
 
   const dispatch = useDispatch();
 
-  const linkToClothing = `product/${clothes.id}`
-
   const addToCart = (clothes) => {
     dispatch(add(clothes))
   }
+
+  const linkToClothing = `product/${clothes.id}`
 
   return (
   <div className="flex flex-col justify-center items-center group max-w-96 p-8 border-2 border-gray-200 gap-3 shadow-md rounded transform motion-safe:hover:scale-110 duration-300">
